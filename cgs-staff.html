@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Data Collection - Creativity Generation Schools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-teal: #0d6b6c;
+      --primary-teal-dark: #084c4d;
+      --accent-gold: #c6923d;
+      --accent-gold-hover: #b07e2a;
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #2d3748;
+      --border-color: #cbd5e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border-top: 6px solid var(--accent-gold);
+      position: relative;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary-teal), var(--primary-teal-dark));
+      padding: 30px 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .logo-container {
+      width: 95px;
+      height: 95px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      padding: 10px;
+    }
+
+    .logo-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: #e2e8f0;
+      font-weight: 300;
+    }
+
+    form {
+      padding: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary-teal);
+    }
+
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s ease;
+      background-color: #ffffff;
+      color: var(--text-color);
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(198, 146, 61, 0.18);
+    }
+
+    select optgroup {
+      font-weight: 700;
+      color: var(--primary-teal);
+      background-color: #f7fafc;
+      padding: 6px 0;
+    }
+
+    select option {
+      font-weight: 400;
+      color: #2d3748;
+      padding: 8px;
+      background-color: #ffffff;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent-gold);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+      box-shadow: 0 4px 12px rgba(198, 146, 61, 0.3);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--accent-gold-hover);
+    }
+
+    .btn-submit:disabled {
+      background-color: #cbd5e0;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    #errorMessage {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+      background-color: #fff5f5;
+      color: #9b2c2c;
+      border: 1px solid #feb2b2;
+    }
+
+    .thank-you-card {
+      display: none;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background-color: #e6fffa;
+      color: #0d6b6c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 20px auto;
+      border: 2px solid #b2f5ea;
+    }
+
+    .thank-you-card h2 {
+      color: var(--primary-teal);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .thank-you-card p {
+      color: #4a5568;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header with Official Logo -->
+  <div class="header">
+    <div class="logo-container">
+      <img src="https://cgschool.com.sa/wp-content/uploads/2025/04/logo-3-1.webp" alt="Creativity Generation Schools Logo">
+    </div>
+    <h1>Creativity Generation Schools</h1>
+    <p>Staff Information Survey</p>
+  </div>
+
+  <!-- Registration Form -->
+  <form id="staffForm">
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <!-- Mobile Number -->
+    <div class="form-group">
+      <label for="mobile">Mobile Number *</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="05xxxxxxxx" pattern="05[0-9]{8}" title="Please enter a valid Saudi mobile number starting with 05" required>
+    </div>
+
+    <!-- Subject / Role -->
+    <div class="form-group">
+      <label for="subjectRole">Subject / Role *</label>
+      <select id="subjectRole" name="subjectRole" required>
+        <option value="" disabled selected>Select Subject or Role</option>
+        
+        <!-- Academic Subjects -->
+        <optgroup label="── Academic Subjects ──">
+          <option value="English">English</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Science">Science</option>
+          <option value="Arabic">Arabic</option>
+          <option value="Islamic Studies">Islamic Studies</option>
+          <option value="Computer / ICT">Computer / ICT</option>
+        </optgroup>
+
+        <!-- Leadership & Administrative Roles -->
+        <optgroup label="── Administrative & Leadership ──">
+          <option value="School Principal">School Principal</option>
+          <option value="Vice Principal">Vice Principal</option>
+          <option value="Int'l Section Supervisor">Int'l Section Supervisor</option>
+          <option value="Student Counselor">Student Counselor</option>
+          <option value="Activity Coordinator">Activity Coordinator</option>
+          <option value="Lab Technician / Specialist">Lab Technician / Specialist</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- Years of Experience -->
+    <div class="form-group">
+      <label for="experience">Years of Experience *</label>
+      <input type="number" id="experience" name="experience" min="0" max="50" required>
+    </div>
+
+    <!-- University -->
+    <div class="form-group">
+      <label for="university">University *</label>
+      <input type="text" id="university" name="university" required>
+    </div>
+
+    <button type="submit" class="btn-submit" id="submitBtn">Submit Data</button>
+    <div id="errorMessage"></div>
+  </form>
+
+  <!-- Thank You Screen -->
+  <div class="thank-you-card" id="thankYouCard">
+    <div class="success-icon">✓</div>
+    <h2>Thank You!</h2>
+    <p>Your registration has been completed successfully.</p>
+  </div>
+</div>
+
+<script>
+  // Web App URL المدمج
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhfivNKE6QmjF8uESmm164wzxOdOj_krm7xUq0in5l5xBMkGzfyRj09iGueynY4Hk/exec";
+
+  const form = document.getElementById('staffForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMessage');
+  const thankYouCard = document.getElementById('thankYouCard');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    errorMsg.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.result === 'success') {
+        form.style.display = 'none';
+        thankYouCard.style.display = 'block';
+      } else {
+        throw new Error(data.error);
+      }
+    })
+    .catch(error => {
+      errorMsg.textContent = 'An error occurred while submitting. Please try again.';
+      errorMsg.style.display = 'block';
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Data';
+    });
+  });
+</script>
+
+</body>
+</html>
